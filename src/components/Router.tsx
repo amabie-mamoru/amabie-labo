@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import App from './App';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Index from './Index';
+import MurderMysteryRouter from './MurderMystery/Router';
 import NotFound from './NotFound';
 
 const Router: React.FC = () => {
@@ -8,8 +9,11 @@ const Router: React.FC = () => {
     <BrowserRouter>
       <div>
         <Header />
-        <Route exact path='/' component={App} />
-        <Route path='*' component={NotFound} />
+        <Switch>
+          <Route exact path='/' component={Index} />
+          <Route path='/murder_mystery' component={MurderMysteryRouter} />
+          <Route path='*' component={NotFound} />
+        </Switch>
         <Footer />
       </div>
     </BrowserRouter>
