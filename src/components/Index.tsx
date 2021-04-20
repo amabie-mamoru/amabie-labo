@@ -7,15 +7,17 @@ import Typewriter from 'typewriter-effect';
 import { Link } from 'react-router-dom';
 
 class Index extends React.Component {
-  state = { isVisibleMessage: false }
+  state = { isVisibleMessage: false, task: () => {} };
 
   componentDidMount() {
-    setInterval(() => {
+    this.state.task = setInterval(() => {
       this.setState({ isVisibleMessage: true });
     }, 3300);
   }
 
-  componentWillUnmount() {}
+  componentWillUnmount() {
+    clearInterval(this.state.task);
+  }
 
   render () {
     const charaMessage = classNames('index__chara-message', {
