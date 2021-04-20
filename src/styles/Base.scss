@@ -16,6 +16,10 @@ a {
   }
 }
 
+hr {
+  margin: 0;
+}
+
 header {
   text-align: center;
   margin-bottom: 20px;
@@ -40,4 +44,12 @@ header {
 footer {
   text-align: center;
   padding: 30px 0;
+  .forSP {
+    display: none;
+  }
+  @media screen and (max-width: 454px) {
+    .forSP {
+      display: block;
+    }
+  }
 }
