@@ -41,7 +41,7 @@ const IndexForPC: React.FC = () => {
         </Link>
       </div>
       <div className="mm-index__work">
-        <Link to='/murder_mystery/end_of_space_journey'>
+        <Link to='/murder_mystery/end_of_space_journey_another_story'>
           <img className="mm-index__work-list-image" src={eosjas} />
         </Link>
       </div>
