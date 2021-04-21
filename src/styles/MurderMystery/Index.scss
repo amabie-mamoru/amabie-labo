@@ -7,11 +7,14 @@
   &__shop {
     margin: 20px 0;
   }
-  &__work-list-image {
-    margin: 10px 0;
-    width: 50%;
-    &:hover {
-      opacity: .5;
+  &__work {
+    margin: 0 20px;
+    &-list-image {
+      margin: 10px 0;
+      width: 600px;
+      &:hover {
+        opacity: .5;
+      }
     }
   }
   $n: &;
