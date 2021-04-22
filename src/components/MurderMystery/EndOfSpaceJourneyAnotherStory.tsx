@@ -636,7 +636,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               <section>
                 <p>ここのボタンは部屋を移動したら押すことができます。</p>
                 <button className={this.GetRoomClass('engine')} onClick={() => this.SetRoom('engine')}>
-                  酸素制御室
+                  エンジンルーム
                 </button>
                 <button className={this.GetRoomClass('labo')} onClick={() => this.SetRoom('labo')}>
                   実験室
