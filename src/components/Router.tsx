@@ -24,7 +24,7 @@ const Header: React.FC = () => {
   return (
     <header>
       <a href="/">
-        <h1>天日江ラボ</h1>
+        <h1>Amabie Labo</h1>
       </a>
     </header>
   );
