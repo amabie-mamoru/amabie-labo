@@ -6,29 +6,17 @@ import classNames from 'classnames';
 import Typewriter from 'typewriter-effect';
 import { Link } from 'react-router-dom';
 
-class Index extends React.Component {
-  state = { isVisibleMessage: false, task: () => {} };
+interface IState {
+  isVisibleMessage: boolean;
+}
 
-  componentDidMount() {
-    this.state.task = setInterval(() => {
-      this.setState({ isVisibleMessage: true });
-    }, 3300);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.state.task);
-  }
-
+class Index extends React.Component<{}, IState> {
   render () {
-    const charaMessage = classNames('index__chara-message', {
-      'visible': this.state.isVisibleMessage
-    })
-
     return (
       <div className="index">
         <section>
           <img className="index__chara-image" src={amabie} />
-          <div className={charaMessage}>
+          <div className="index__chara-message">
             <div className="index__chara-message-frame">
               <Typewriter
                 onInit={(typewriter) => {
@@ -37,7 +25,7 @@ class Index extends React.Component {
                       'こんびえ〜🧜‍♂️<br />'
                     )
                     .typeString(
-                      '<ruby>天日江<rt>あまびえ</rt>&nbsp;護<rt>　まもる</rt></ruby>です！<br />'
+                      '<ruby>天日江<rt>あまびえ</rt>&nbsp;護<rt>　まもる</rt></ruby>です⛱<br />'
                     )
                     .typeString(
                       'ここには僕の作ったものが公開されていきます！<br />'

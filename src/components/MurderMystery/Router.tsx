@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { RouteComponentProps } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router-dom';
 import Index from './Index';
 import EndOfSpaceJourney from './EndOfSpaceJourney';
 import EndOfSpaceJourneyAnotherStory from './EndOfSpaceJourneyAnotherStory';

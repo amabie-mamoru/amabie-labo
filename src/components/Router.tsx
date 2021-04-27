@@ -33,7 +33,7 @@ const Header: React.FC = () => {
 const Footer: React.FC = () => {
   return (
     <footer>
-      <p>Copyright &copy; 2021 <a href="https://twitter.com/amabie_mamoru">@amabie_mamoru</a>. All Rights Reserved.</p>
+      <p>Copyright &copy; 2021 <a href="https://twitter.com/amabie_mamoru">@amabie_mamoru</a>.<br className="forSP" /> All Rights Reserved.</p>
     </footer>
   );
 }

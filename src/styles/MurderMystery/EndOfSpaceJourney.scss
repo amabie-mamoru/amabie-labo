@@ -1,0 +1,57 @@
+@import '../Variables';
+
+.mm-eosj {
+  &__key-visual {
+    h2 {
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+    margin: 20px auto;
+    background-image: url(../../images/murder-mystery/end-of-space-journey-banner.png);
+    width: 640px;
+    height: 300px;
+    background-size: 640px 300px;
+    background-position: middle middle;
+  }
+  &__description {
+    text-align: center;
+    margin: 20px;
+  }
+  &__content {
+    &-layout {
+      display: flex;
+    }
+    &-image {
+      &.green-back {
+        background: #0f0;
+      }
+      text-align: center;
+      display: inline-block;
+      padding: 10px;
+      width: 620px;
+      height: 860px;
+      img {
+        // height 832px;
+        width: 588px;
+      }
+    }
+    &-actions {
+      section, p {
+        margin: 10px 0;
+      }
+      button {
+        margin: 0 5px;
+        &.active {
+          background: $aqua;
+          border-radius: 5px;
+          color: #fff;
+        }
+        &.selected {
+          background: #0d0;
+          border-radius: 5px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
