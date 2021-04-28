@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/MurderMystery/EndOfSpaceJourney.scss';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import prologue1 from '../../images/murder-mystery/eosj/prologue1.png';
 import selectRole from '../../images/murder-mystery/eosj/select-role.png';
 import prologue2 from '../../images/murder-mystery/eosj/prologue2.png';
@@ -658,6 +659,11 @@ export default class EndOfSpaceJourney extends React.Component<{}, IState> {
               </section>
             </div>
           </div>
+        </div>
+        <div className='back-button'>
+          <Link to='/murder_mystery'>
+            &lt; 戻る
+          </Link>
         </div>
       </div>
     );
