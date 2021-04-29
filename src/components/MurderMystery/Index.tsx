@@ -29,7 +29,9 @@ const IndexForPC: React.FC = () => {
         このページは天日江護の制作したマーダーミステリー作品の紹介とをツールを紹介しています。<br />
         作品については Booth にて販売していますので、そちらをご確認ください！
       </p>
-      <p className="mm-index__shop"> Booth へ GO → Comming Soon...</p>
+      <p className="mm-index__shop">
+        Booth へ GO → <a href="https://amabie-mamoru.booth.pm/" target="_blank">https://amabie-mamoru.booth.pm/</a>
+      </p>
       <p className="mm-index__description">
         以下は配信などで遊びやすくするために、カンニングする人がいない前提で進行を補助するツールを提供しています。<br />
         購入者は是非利用してみてくださいね🐳<br />
