@@ -22,15 +22,15 @@ const Canvas: React.FC<IProps> = (props) => {
 
   // stack
   const STACK_MAX_SIZE = 20;
-  const [undoDataStack, SetUndoDataStack] = useState([]);
-  const [redoDataStack, SetRedoDataStack] = useState([]);
+  const [undoDataStack, SetUndoDataStack] = useState<ImageData[]>([]);
+  const [redoDataStack, SetRedoDataStack] = useState<ImageData[]>([]);
 
   // erase
-  const [eraseMode, SetEraseMode] = useState(false);
+  const [eraseMode, SetEraseMode] = useState<boolean>(false);
 
   // visible
-  const [visible, SetVisible] = useState(true);
-  const [visibleStack, SetVisibleStack] = useState(null);
+  const [visible, SetVisible] = useState<boolean>(true);
+  const [visibleStack, SetVisibleStack] = useState<ImageData | null>(null);
 
   const getContext = (): CanvasRenderingContext2D => {
     const canvas: any = canvasRef.current;
@@ -50,7 +50,8 @@ const Canvas: React.FC<IProps> = (props) => {
     if (undoDataStack.length >= STACK_MAX_SIZE) {
       undoDataStack.pop();
     }
-    undoDataStack.unshift(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    const imageData: ImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    undoDataStack.unshift(imageData);
 
     eraseMode ? Erase(x, y) : Draw(x, y);
   }
@@ -104,6 +105,7 @@ const Canvas: React.FC<IProps> = (props) => {
     const canvas: any = canvasRef.current;
     redoDataStack.unshift(ctx.getImageData(0, 0, canvas.width, canvas.height));
     const imageData = undoDataStack.shift();
+    if (imageData === undefined) { throw 'NoImageDataError'; }
     ctx.putImageData(imageData, 0, 0);
   }
 
@@ -114,6 +116,7 @@ const Canvas: React.FC<IProps> = (props) => {
     const canvas: any = canvasRef.current;
     undoDataStack.unshift(ctx.getImageData(0, 0, canvas.width, canvas.height));
     const imageData = redoDataStack.shift();
+    if (imageData === undefined) { throw 'NoImageDataError'; }
     ctx.putImageData(imageData, 0, 0);
   }
 
@@ -130,7 +133,6 @@ const Canvas: React.FC<IProps> = (props) => {
     ctx.lineTo(x, y);
     ctx.lineCap = "round";
     ctx.lineWidth = 10;
-    //ctx.strokeStyle = "#884898";
     ctx.stroke();
     mouseX = x;
     mouseY = y;
@@ -145,9 +147,11 @@ const Canvas: React.FC<IProps> = (props) => {
     const canvas: any = canvasRef.current;
     if (visible) {
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+      if (imageData === undefined) { throw 'NoImageDataError'; }
       SetVisibleStack(imageData);
       ctx.clearRect(0, 0, width, height);
     } else {
+      if (visibleStack === null || visibleStack === undefined) { throw 'NoImageDataError'; }
       ctx.putImageData(visibleStack, 0, 0);
       SetVisibleStack(null);
     }
