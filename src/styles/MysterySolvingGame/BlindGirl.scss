@@ -1,0 +1,52 @@
+@import '../Variables';
+
+.msg-bg {
+  &__key-visual {
+    h2 {
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+    margin: 20px auto;
+    background-image: url(../../images/mystery-solving-game/blind-girl-banner.png);
+    width: 640px;
+    height: 300px;
+    background-size: 640px 300px;
+    background-position: middle middle;
+  }
+  &__missions, &__mission {
+    text-align: center;
+    margin: 20px;
+  }
+  &__missions {
+    input + button {
+      margin-left: 20px;
+    }
+  }
+  &__mission {
+    &--wrong {
+      margin: 20px;
+      color: red;
+    }
+  }
+  &__map {
+    margin: 20px 20px 80px;
+    text-align: center;
+    canvas {
+      margin: 20px;
+      background-image: url(../../images/mystery-solving-game/blind-girl/map.png);
+      width: 800px;
+      height: 600px;
+      background-size: 800px 600px;
+      &:hover {
+        cursor: url(../../images/dot.svg);
+      }
+    }
+    button + button {
+      margin-left: 20px;
+    }
+  }
+  .back-button {
+    text-align: center;
+    margin: 20px 0;
+  }
+}

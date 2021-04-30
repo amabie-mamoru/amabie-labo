@@ -138,24 +138,6 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
       'green-back': this.state.greenBack
     });
 
-    let roleName = '';
-    switch (this.state.role) {
-      case 'Com':
-        roleName = "コマンダー"
-        break;
-      case 'MSA':
-        roleName = "MS(A)"
-        break;
-      case 'MSB':
-        roleName = "MS(B)"
-        break;
-      case 'PS':
-        roleName = 'PS'
-        break;
-      default:
-        break;
-    }
-
     let Image;
     if (this.state.url === '') {
       Image = <p>ここに画像が表示されます。</p>;
@@ -163,25 +145,25 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
       // 悲しいかな時間がないのでむちゃくちゃだけど回避
       switch (this.state.url) {
         case 'prologue1':
-          Image = <img src={prologue1} />;
+          Image = <img src={prologue1} alt="プロローグ1" />;
           break;
         case 'selectRole':
-          Image = <img src={selectRole} />;
+          Image = <img src={selectRole} alt="役職選択" />;
           break;
         case 'prologue2':
-          Image = <img src={prologue2} />;
+          Image = <img src={prologue2} alt="プロローグ2" />;
           break;
         case 'map':
-          Image = <img src={map} />;
+          Image = <img src={map} alt="マップ" />;
           break;
         case 'sharedInfo1':
-          Image = <img src={sharedInfo1} />;
+          Image = <img src={sharedInfo1} alt="共有情報1" />;
           break;
         case 'sharedInfo2':
-          Image = <img src={sharedInfo2} />;
+          Image = <img src={sharedInfo2} alt="共有情報2" />;
           break;
         case 'sharedInfo3':
-          Image = <img src={sharedInfo3} />;
+          Image = <img src={sharedInfo3} alt="共有情報3" />;
           break;
         default:
           break;
@@ -193,52 +175,52 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
       else if (this.state.role === 'Com') {
         switch(this.state.url) {
           case 'yourInfo1':
-            Image = <img src={comYourInfo1} />;
+            Image = <img src={comYourInfo1} alt="あなたの情報1" />;
             break;
           case 'yourInfo2':
-            Image = <img src={comYourInfo2} />;
+            Image = <img src={comYourInfo2} alt="あなたの情報2" />;
             break;
           case 'yourInfo3':
-            Image = <img src={comYourInfo3} />;
+            Image = <img src={comYourInfo3} alt="あなたの情報3" />;
             break;
         }
       }
       else if (this.state.role === 'MSA') {
         switch(this.state.url) {
           case 'yourInfo1':
-            Image = <img src={msaYourInfo1} />;
+            Image = <img src={msaYourInfo1} alt="あなたの情報1" />;
             break;
           case 'yourInfo2':
-            Image = <img src={msaYourInfo2} />;
+            Image = <img src={msaYourInfo2} alt="あなたの情報2" />;
             break;
           case 'yourInfo3':
-            Image = <img src={msaYourInfo3} />;
+            Image = <img src={msaYourInfo3} alt="あなたの情報3" />;
             break;
         }
       }
       else if (this.state.role === 'MSB') {
         switch(this.state.url) {
           case 'yourInfo1':
-            Image = <img src={msbYourInfo1} />;
+            Image = <img src={msbYourInfo1} alt="あなたの情報1" />;
             break;
           case 'yourInfo2':
-            Image = <img src={msbYourInfo2} />;
+            Image = <img src={msbYourInfo2} alt="あなたの情報2" />;
             break;
           case 'yourInfo3':
-            Image = <img src={msbYourInfo3} />;
+            Image = <img src={msbYourInfo3} alt="あなたの情報3" />;
             break;
         }
       }
       else if (this.state.role === 'PS') {
         switch(this.state.url) {
           case 'yourInfo1':
-            Image = <img src={psYourInfo1} />;
+            Image = <img src={psYourInfo1} alt="あなたの情報1" />;
             break;
           case 'yourInfo2':
-            Image = <img src={psYourInfo2} />;
+            Image = <img src={psYourInfo2} alt="あなたの情報2" />;
             break;
           case 'yourInfo3':
-            Image = <img src={psYourInfo3} />;
+            Image = <img src={psYourInfo3} alt="あなたの情報3" />;
             break;
         }
       }
@@ -250,7 +232,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={comEngineInfo1} />;
+              Image = <img src={comEngineInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -265,10 +247,10 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={msaEngineInfo1} />;
+              Image = <img src={msaEngineInfo1} alt="情報1" />;
               break;
             case 'info2':
-              Image = <img src={msaEngineInfo2} />;
+              Image = <img src={msaEngineInfo2} alt="情報2" />;
               break;
             case 'info3':
               Image = <p>情報3はありません。</p>;
@@ -280,10 +262,10 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={msbEngineInfo1} />;
+              Image = <img src={msbEngineInfo1} alt="情報1" />;
               break;
             case 'info2':
-              Image = <img src={msbEngineInfo2} />;
+              Image = <img src={msbEngineInfo2} alt="情報2" />;
               break;
             case 'info3':
               Image = <p>情報3はありません。</p>;
@@ -292,10 +274,10 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
         } else if (this.state.role === 'PS') {
           switch(this.state.url) {
             case 'item1':
-              Image = <img src={psEngineItem1} />;
+              Image = <img src={psEngineItem1} alt="アイテム1" />;
               break;
             case 'info1':
-              Image = <img src={psEngineInfo1} />;
+              Image = <img src={psEngineInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -312,7 +294,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={comLaboInfo1} />;
+              Image = <img src={comLaboInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -327,7 +309,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={msaLaboInfo1} />;
+              Image = <img src={msaLaboInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -342,7 +324,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={msbLaboInfo1} />;
+              Image = <img src={msbLaboInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -357,13 +339,13 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={psLaboInfo1} />;
+              Image = <img src={psLaboInfo1} alt="情報1" />;
               break;
             case 'info2':
-              Image = <img src={psLaboInfo2} />;
+              Image = <img src={psLaboInfo2} alt="情報2" />;
               break;
             case 'info3':
-              Image = <img src={psLaboInfo3} />;
+              Image = <img src={psLaboInfo3} alt="情報3" />;
               break;
           }
         }
@@ -371,7 +353,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
         if (this.state.role === 'Com') {
           switch(this.state.url) {
             case 'item1':
-              Image = <img src={comStorageItem1} />;
+              Image = <img src={comStorageItem1} alt="アイテム1" />;
               break;
             case 'info1':
               Image = <p>情報1はありません。</p>;
@@ -389,7 +371,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={msaStorageInfo1} />;
+              Image = <img src={msaStorageInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -401,7 +383,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
         } else if (this.state.role === 'MSB') {
           switch(this.state.url) {
             case 'item1':
-              Image = <img src={msbStorageItem1} />;
+              Image = <img src={msbStorageItem1} alt="アイテム1" />;
               break;
             case 'info1':
               Image = <p>情報1はありません。</p>;
@@ -416,7 +398,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
         } else if (this.state.role === 'PS') {
           switch(this.state.url) {
             case 'item1':
-              Image = <img src={psStorageItem1} />;
+              Image = <img src={psStorageItem1} alt="アイテム1" />;
               break;
             case 'info1':
               Image = <p>情報1はありません。</p>;
@@ -436,7 +418,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={comNaviInfo1} />;
+              Image = <img src={comNaviInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -451,10 +433,10 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={msaNaviInfo1} />;
+              Image = <img src={msaNaviInfo1} alt="情報1" />;
               break;
             case 'info2':
-              Image = <img src={msaNaviInfo2} />;
+              Image = <img src={msaNaviInfo2} alt="情報2" />;
               break;
             case 'info3':
               Image = <p>情報3はありません。</p>;
@@ -466,10 +448,10 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={msbNaviInfo1} />;
+              Image = <img src={msbNaviInfo1} alt="情報1" />;
               break;
             case 'info2':
-              Image = <img src={msbNaviInfo2} />;
+              Image = <img src={msbNaviInfo2} alt="情報2" />;
               break;
             case 'info3':
               Image = <p>情報3はありません。</p>;
@@ -481,7 +463,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={psNaviInfo1} />;
+              Image = <img src={psNaviInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -495,10 +477,10 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
         if (this.state.role === 'Com') {
           switch(this.state.url) {
             case 'item1':
-              Image = <img src={comCommItem1} />;
+              Image = <img src={comCommItem1} alt="アイテム1" />;
               break;
             case 'info1':
-              Image = <img src={comCommInfo1} />;
+              Image = <img src={comCommInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -513,7 +495,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={msaCommInfo1} />;
+              Image = <img src={msaCommInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -525,10 +507,10 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
         } else if (this.state.role === 'MSB') {
           switch(this.state.url) {
             case 'item1':
-              Image = <img src={msbCommItem1} />;
+              Image = <img src={msbCommItem1} alt="アイテム1" />;
               break;
             case 'info1':
-              Image = <img src={msbCommInfo1} />;
+              Image = <img src={msbCommInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;
@@ -543,7 +525,7 @@ export default class EndOfSpaceJourneyAnotherStory extends React.Component<{}, I
               Image = <p>アイテムはありません。</p>;
               break;
             case 'info1':
-              Image = <img src={psCommInfo1} />;
+              Image = <img src={psCommInfo1} alt="情報1" />;
               break;
             case 'info2':
               Image = <p>情報2はありません。</p>;

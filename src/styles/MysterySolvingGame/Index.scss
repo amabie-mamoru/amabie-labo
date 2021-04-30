@@ -1,0 +1,26 @@
+.msg-index {
+  text-align: center;
+  h2 { margin: 10px 0; }
+  &__description {
+    margin: 0 80px;
+  }
+  &__shop {
+    margin: 20px 0;
+  }
+  &__work {
+    margin: 0 20px;
+    &-list-image {
+      margin: 10px 0;
+      width: 640px;
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
+  $n: &;
+  @media screen and (max-width: 640px) {
+    #{$n}__description {
+      margin: 0 10px;
+    }
+  }
+}
