@@ -21,8 +21,9 @@
     &-h2 {
       margin: 10px;
     }
-    &--murder-mystery {
-      margin: 0 20px;
+    &--work {
+      $n: &;
+      margin: 20px;
       img {
         width: 640px;
         &:hover {

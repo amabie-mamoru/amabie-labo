@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Index from './Index';
 import MurderMysteryRouter from './MurderMystery/Router';
+import MysterySolvingGameRouter from './MysterySolvingGame/Router';
 import NotFound from './NotFound';
 
 const Router: React.FC = () => {
@@ -12,6 +13,7 @@ const Router: React.FC = () => {
         <Switch>
           <Route exact path='/' component={Index} />
           <Route path='/murder_mystery' component={MurderMysteryRouter} />
+          <Route path='/mystery_solving_game' component={MysterySolvingGameRouter} />
           <Route path='*' component={NotFound} />
         </Switch>
         <Footer />
