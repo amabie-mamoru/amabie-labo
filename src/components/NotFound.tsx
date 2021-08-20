@@ -1,8 +1,9 @@
 import React from 'react';
+import '../styles/NotFound.scss';
 
 const NotFound: React.FC = () => {
   return (
-    <p>NotFound</p>
+    <p className="not-found">NotFound</p>
   )
 }
 
