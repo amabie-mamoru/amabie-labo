@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import '../../styles/KnowHow/Base.scss';
 import img_vtube_studio_x_discord from '../../images/know-how/vtube-studio-x-discord.png';
 import img_prepare from '../../images/know-how/vtube-studio-x-discord/prepare.png';
-import img_xsplit from '../../images/know-how/vtube-studio-x-discord/xsplit-broadcaster.png';
+import img_xsplit01 from '../../images/know-how/vtube-studio-x-discord/xsplit-broadcaster01.png';
+import img_xsplit02 from '../../images/know-how/vtube-studio-x-discord/xsplit-broadcaster02.png';
 import img_discord01 from '../../images/know-how/vtube-studio-x-discord/discord01.png';
 import img_discord02 from '../../images/know-how/vtube-studio-x-discord/discord02.png';
 import img_discord03 from '../../images/know-how/vtube-studio-x-discord/discord03.png';
@@ -12,7 +13,7 @@ import img_discord03 from '../../images/know-how/vtube-studio-x-discord/discord0
 const Index: React.FC = () => {
   return (
     <div className="kh-show">
-      {Head}
+      <Head />
       <h2>VTube Studio と Discord を使って共演 VTuber をぬるぬる動かす</h2>
       <p className="kh-show-timestamp">2021.08.21</p>
       <p className="kh-show-image">
@@ -39,8 +40,9 @@ const Index: React.FC = () => {
       </p>
       <h3>準備するもの</h3>
       <p>
-        下記は全てリンクになっています。インストール済みの状態である前提で話していきます。<br />
-        VTube Studio はトラッキングのためアプリ側で課金が必要です。
+        インストール済みの状態である前提で話していきます。<br />
+        VTube Studio はトラッキングのためアプリ側で課金が必要です。<br />
+        ※以下は全てダウンロードリンクになっています。
       </p>
       <ul>
         <li><a href="https://discord.com/download" target="_blank" rel="noreferrer">Discord</a></li>
@@ -58,27 +60,36 @@ const Index: React.FC = () => {
       <p>
         XSplit Broadcaster で OBS のように<br />
         [Add Source] -&gt; [Screen Capture] -&gt; [Window Capture] -&gt; [VTube Studio (VTube Studio.exe)]<br />
-        として VTube Studio を表示。<br />
+        として VTube Studio を表示します。<br />
         ※ OBS のように Alt 押しながらウィンドウの端を左クリックしてクリップ可能
       </p>
       <p className="kh-show-image">
-        <img src={img_xsplit} alt="XSplit Broadcaster の設定" />
+        <img src={img_xsplit01} alt="XSplit Broadcaster の設定" />
       </p>
       <p>
-        Discord の設定アイコンを押す
+        このあとミラーしておくと配信時に反転しなくてすむので反転させておきます。<br />
+        [Window "VTubeStudio" in "vtube studio.exe" process] を右クリックしてプロパティを表示。<br />
+        [Layout] のタブから [2D/3D Transform] の項目の左右を反転しそうな Flip アイコンを選択しておきます。
+      </p>
+      <p className="kh-show-image">
+        <img src={img_xsplit02} alt="XSplit Broadcaster で反転" />
+      </p>
+      <p>
+        Discord での操作に移ります。<br />
+        まずは設定アイコンを押します。
       </p>
       <p className="kh-show-image">
         <img src={img_discord01} alt="Discord の設定アイコンを選択" />
       </p>
       <p>
-        設定中段にある [音声・ビデオ] の中段にある [ビデオ設定] の項目でカメラを [XSplitBroadcaster] を選択。<br />
-        念の為、ビデオをテストで表示されるかを確認する
+        設定中段にある [音声・ビデオ] の中段にある [ビデオ設定] の項目でカメラに [XSplitBroadcaster] を選択。<br />
+        念の為、[ビデオをテスト] で表示されるかを確認します。
       </p>
       <p className="kh-show-image">
         <img src={img_discord02} alt="Discord のビデオの設定" />
       </p>
       <p>
-        共演者とやりとりするボイスチャンネルに入り、 [WEB カメラ] のボタンを押して VTube Studio の内容が表示されるか確認する。<br />
+        共演者とやりとりするボイスチャンネルに入り、 [WEB カメラ] のボタンを押して VTube Studio の内容が表示されるか確認します。<br />
       </p>
       <p className="kh-show-image">
         <img src={img_discord03} alt="Discord で WEB カメラで起動" />
@@ -86,13 +97,12 @@ const Index: React.FC = () => {
       <p>
         あとは、 OBS で Discord をウィンドウキャプチャしてクロマキーで緑を抜けば共演者と一緒にぬるぬる動けます！<br />
         一人で設定の確認もできるのでこだわりのある方は一度この方法試してみてはいかがでしょうか？<br />
-        (配信前に共演者の方々と準備する時間が増えますが...)
+        相当な CPU やネットワークを消費するのでご利用は計画的に。
       </p>
       <p className="kh-show-margin20">
         では、よき配信ライフを〜🧜‍♂️
       </p>
-
-      {BackButton}
+      <BackButton />
     </div>
   );
 }
@@ -109,9 +119,9 @@ const BackButton: React.FC = () => {
 
 const Head: React.FC = () => {
   const title = 'VTube Studio と Discord を使って共演 VTuber をぬるぬる動かす';
-  const url = 'https://amabie-labo.com/know_how/streaming01'
+  const url = 'https://amabie-labo.com/know_how/streaming01';
   const description = '共演者や自分を共演者の配信画面上でぬるぬる動かすための方法についてお伝えします。';
-  let img = img_vtube_studio_x_discord;
+  const img = `https://amabie-labo.com${img_vtube_studio_x_discord}`;
   return (
     <Helmet>
       <meta property="og:title" content={title} />
