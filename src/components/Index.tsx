@@ -3,6 +3,7 @@ import '../styles/Index.scss';
 import amabie from '../images/amabie.png';
 import murder_mystery from '../images/murder-mystery-work-list-banner.png';
 import mystery_solving_game from '../images/mystery-solving-game-work-list-banner.png';
+import know_how_streaming from '../images/homepage-know-how-streaming-banner.png';
 import Typewriter from 'typewriter-effect';
 import { Link } from 'react-router-dom';
 
@@ -48,6 +49,12 @@ class Index extends React.Component<{}, IState> {
           <div className="index__work-list--work">
             <Link to="/mystery_solving_game">
               <img src={mystery_solving_game} alt="謎解き" />
+            </Link>
+          </div>
+          <h2 className="index__know-how-h2">ノウハウ</h2>
+          <div className="index__know-how--streaming">
+            <Link to="/know_how">
+              <img src={know_how_streaming} alt="配信お役立ち情報" />
             </Link>
           </div>
         </section>
