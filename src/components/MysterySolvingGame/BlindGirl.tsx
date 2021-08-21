@@ -2,6 +2,8 @@ import React from 'react';
 import '../../styles/MysterySolvingGame/BlindGirl.scss';
 import { Link } from 'react-router-dom';
 import Canvas from '../Canvas';
+import blind_girl from '../../images/mystery-solving-game/blind-girl-banner.png';
+import Helmet from 'react-helmet';
 
 interface IState {
   missionId: number;
@@ -153,6 +155,7 @@ export default class BlindGirl extends React.Component<{}, IState> {
 
     return (
       <div className="msg-bg">
+        <Head />
         <div className="msg-bg__key-visual">
           <h2>盲目少女の奇妙な一日</h2>
         </div>
@@ -173,4 +176,21 @@ export default class BlindGirl extends React.Component<{}, IState> {
       </div>
     );
   }
+}
+
+const Head: React.FC = () => {
+  const title = '盲目少女の奇妙な一日';
+  const type = 'website';
+  const img = `https://amabie-labo.com${blind_girl}`;
+  const url = 'https://amabie-labo.com/mystery_solving_game/blind_girl';
+  const description = '盲目少女の奇妙な一日プレイ用ツールです';
+  return (
+    <Helmet>
+      <meta property="og:title" content={title} />
+      <meta property="og:type" content={type} />
+      <meta property="og:image" content={img} />
+      <meta property="og:url" content={url} />
+      <meta property="og:description" content={description} />
+    </Helmet>
+  );
 }

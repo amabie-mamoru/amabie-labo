@@ -119,13 +119,14 @@ const BackButton: React.FC = () => {
 
 const Head: React.FC = () => {
   const title = 'VTube Studio と Discord を使って共演 VTuber をぬるぬる動かす';
+  const type = 'article';
+  const img = `https://amabie-labo.com${img_vtube_studio_x_discord}`;
   const url = 'https://amabie-labo.com/know_how/streaming01';
   const description = '共演者や自分を共演者の配信画面上でぬるぬる動かすための方法についてお伝えします。';
-  const img = `https://amabie-labo.com${img_vtube_studio_x_discord}`;
   return (
     <Helmet>
       <meta property="og:title" content={title} />
-      <meta property="og:type" content="article" />
+      <meta property="og:type" content={type} />
       <meta property="og:image" content={img} />
       <meta property="og:url" content={url} />
       <meta property="og:description" content={description} />
