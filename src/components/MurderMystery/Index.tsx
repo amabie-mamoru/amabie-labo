@@ -1,8 +1,10 @@
 import React from 'react';
 import '../../styles/MurderMystery/Index.scss';
+import { Link } from 'react-router-dom';
 import eosj from '../../images/murder-mystery/end-of-space-journey-banner.png';
 import eosjas from '../../images/murder-mystery/end-of-space-journey-another-story-banner.png';
-import { Link } from 'react-router-dom';
+import murder_mystery from '../../images/murder-mystery-work-list-banner.png';
+import Helmet from 'react-helmet';
 
 const Index: React.FC = () => {
   const ua = window.navigator.userAgent.toLowerCase();
@@ -24,6 +26,7 @@ const Index: React.FC = () => {
 const IndexForPC: React.FC = () => {
   return (
     <div className="mm-index">
+      <Head />
       <h2>このページについて</h2>
       <p className="mm-index__description">
         このページは天日江護の制作したマーダーミステリー作品の紹介とをツールを紹介しています。<br />
@@ -54,6 +57,7 @@ const IndexForPC: React.FC = () => {
 const IndexForSP: React.FC = () => {
   return (
     <div className="mm-index">
+      <Head />
       <h2>このページについて</h2>
       <p className="mm-index__description">
         このページは天日江護の制作したマーダーミステリー作品の紹介とをツールを紹介しています。<br />
@@ -68,6 +72,23 @@ const IndexForSP: React.FC = () => {
       </p>
     </div>
   )
+}
+
+const Head: React.FC = () => {
+  const title = 'マーダーミステリー';
+  const type = 'website';
+  const img = `https://amabie-labo.com${murder_mystery}`;
+  const url = 'https://amabie-labo.com/murder_mystery';
+  const description = 'マーダーミステリーの作品一覧です';
+  return (
+    <Helmet>
+      <meta property="og:title" content={title} />
+      <meta property="og:type" content={type} />
+      <meta property="og:image" content={img} />
+      <meta property="og:url" content={url} />
+      <meta property="og:description" content={description} />
+    </Helmet>
+  );
 }
 
 export default Index;

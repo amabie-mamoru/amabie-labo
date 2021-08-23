@@ -2,6 +2,8 @@ import React from 'react';
 import '../../styles/MurderMystery/EndOfSpaceJourney.scss';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
+import eosj from '../../images/murder-mystery/end-of-space-journey-banner.png';
 import prologue1 from '../../images/murder-mystery/eosj/prologue1.png';
 import selectRole from '../../images/murder-mystery/eosj/select-role.png';
 import prologue2 from '../../images/murder-mystery/eosj/prologue2.png';
@@ -530,6 +532,7 @@ export default class EndOfSpaceJourney extends React.Component<{}, IState> {
 
     return (
       <div className='mm-eosj'>
+        <Head />
         <div className="mm-eosj__key-visual">
           <h2>スペースジャーニーの結末</h2>
         </div>
@@ -649,4 +652,21 @@ export default class EndOfSpaceJourney extends React.Component<{}, IState> {
       </div>
     );
   }
+}
+
+const Head: React.FC = () => {
+  const title = 'スペースジャーニーの結末';
+  const type = 'website';
+  const img = `https://amabie-labo.com${eosj}`;
+  const url = 'https://amabie-labo.com/murder_mystery/end_of_space_journey';
+  const description = 'スペースジャーニーの結末の配信用便利ツールです';
+  return (
+    <Helmet>
+      <meta property="og:title" content={title} />
+      <meta property="og:type" content={type} />
+      <meta property="og:image" content={img} />
+      <meta property="og:url" content={url} />
+      <meta property="og:description" content={description} />
+    </Helmet>
+  );
 }

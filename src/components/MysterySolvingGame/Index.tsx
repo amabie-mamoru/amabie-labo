@@ -1,7 +1,9 @@
 import React from 'react';
 import '../../styles/MysterySolvingGame/Index.scss';
 import blind_girl from '../../images/mystery-solving-game/blind-girl-banner.png';
+import mystery_solving_game from '../../images/mystery-solving-game-work-list-banner.png';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
 
 const Index: React.FC = () => {
   const ua = window.navigator.userAgent.toLowerCase();
@@ -23,6 +25,7 @@ const Index: React.FC = () => {
 const IndexForPC: React.FC = () => {
   return (
     <div className="msg-index">
+      <Head />
       <h2>このページについて</h2>
       <p className="msg-index__description">
         このページは天日江護の制作した謎解き作品の紹介とをツールを紹介しています。<br />
@@ -48,6 +51,7 @@ const IndexForPC: React.FC = () => {
 const IndexForSP: React.FC = () => {
   return (
     <div className="msg-index">
+      <Head />
       <h2>このページについて</h2>
       <p className="msg-index__description">
         このページは天日江護の制作した謎解き作品の紹介とをツールを紹介しています。<br />
@@ -62,6 +66,23 @@ const IndexForSP: React.FC = () => {
       </p>
     </div>
   )
+}
+
+const Head: React.FC = () => {
+  const title = '謎解き';
+  const type = 'website';
+  const img = `https://amabie-labo.com${mystery_solving_game}`;
+  const url = 'https://amabie-labo.com/mystery_solving_game';
+  const description = '謎解きの作品一覧です';
+  return (
+    <Helmet>
+      <meta property="og:title" content={title} />
+      <meta property="og:type" content={type} />
+      <meta property="og:image" content={img} />
+      <meta property="og:url" content={url} />
+      <meta property="og:description" content={description} />
+    </Helmet>
+  );
 }
 
 export default Index;

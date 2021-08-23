@@ -6,6 +6,7 @@ import mystery_solving_game from '../images/mystery-solving-game-work-list-banne
 import know_how_streaming from '../images/homepage-know-how-streaming-banner.png';
 import Typewriter from 'typewriter-effect';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
 
 interface IState {
   isVisibleMessage: boolean;
@@ -15,6 +16,7 @@ class Index extends React.Component<{}, IState> {
   render () {
     return (
       <div className="index">
+        <Head />
         <section>
           <img className="index__chara-image" src={amabie} alt="天日江" />
           <div className="index__chara-message">
@@ -61,6 +63,23 @@ class Index extends React.Component<{}, IState> {
       </div>
     );
   }
+}
+
+const Head: React.FC = () => {
+  const title = 'あまびえラボ';
+  const type = 'website';
+  const img = 'https://amabie-labo.com/ogp.png';
+  const url = 'https://amabie-labo.com';
+  const description = '天日江護の公式サイトです';
+  return (
+    <Helmet>
+      <meta property="og:title" content={title} />
+      <meta property="og:type" content={type} />
+      <meta property="og:image" content={img} />
+      <meta property="og:url" content={url} />
+      <meta property="og:description" content={description} />
+    </Helmet>
+  );
 }
 
 export default Index;
