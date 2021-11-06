@@ -3,10 +3,11 @@ import '../styles/Index.scss';
 import amabie from '../images/amabie.png';
 import murder_mystery from '../images/murder-mystery-work-list-banner.png';
 import mystery_solving_game from '../images/mystery-solving-game-work-list-banner.png';
+import img_pikopiko_obs_x_discord from '../images/tool/pikopiko-obs-x-discord.png';
 import know_how_streaming from '../images/homepage-know-how-streaming-banner.png';
 import Typewriter from 'typewriter-effect';
 import { Link } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 interface IState {
   isVisibleMessage: boolean;
@@ -53,6 +54,12 @@ class Index extends React.Component<{}, IState> {
               <img src={mystery_solving_game} alt="謎解き" />
             </Link>
           </div>
+          <h2 className="index__tool-h2">ツール</h2>
+          <div className="index__work-list--work">
+            <Link to="/tool">
+              <img src={img_pikopiko_obs_x_discord} alt="ツール" />
+            </Link>
+          </div>
           <h2 className="index__know-how-h2">ノウハウ</h2>
           <div className="index__know-how--streaming">
             <Link to="/know_how">
@@ -72,13 +79,15 @@ const Head: React.FC = () => {
   const url = 'https://amabie-labo.com';
   const description = '天日江護の公式サイトです';
   return (
-    <Helmet>
-      <meta property="og:title" content={title} />
-      <meta property="og:type" content={type} />
-      <meta property="og:image" content={img} />
-      <meta property="og:url" content={url} />
-      <meta property="og:description" content={description} />
-    </Helmet>
+    <HelmetProvider>
+      <Helmet>
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content={type} />
+        <meta property="og:image" content={img} />
+        <meta property="og:url" content={url} />
+        <meta property="og:description" content={description} />
+      </Helmet>
+    </HelmetProvider>
   );
 }
 

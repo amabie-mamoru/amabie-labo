@@ -105,7 +105,7 @@ const Canvas: React.FC<IProps> = (props) => {
     const canvas: any = canvasRef.current;
     redoDataStack.unshift(ctx.getImageData(0, 0, canvas.width, canvas.height));
     const imageData = undoDataStack.shift();
-    if (imageData === undefined) { throw 'NoImageDataError'; }
+    if (imageData === undefined) { throw new Error('NoImageDataError'); }
     ctx.putImageData(imageData, 0, 0);
   }
 
@@ -116,7 +116,7 @@ const Canvas: React.FC<IProps> = (props) => {
     const canvas: any = canvasRef.current;
     undoDataStack.unshift(ctx.getImageData(0, 0, canvas.width, canvas.height));
     const imageData = redoDataStack.shift();
-    if (imageData === undefined) { throw 'NoImageDataError'; }
+    if (imageData === undefined) { throw new Error('NoImageDataError'); }
     ctx.putImageData(imageData, 0, 0);
   }
 
@@ -147,11 +147,11 @@ const Canvas: React.FC<IProps> = (props) => {
     const canvas: any = canvasRef.current;
     if (visible) {
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
-      if (imageData === undefined) { throw 'NoImageDataError'; }
+      if (imageData === undefined) { throw new Error('NoImageDataError'); }
       SetVisibleStack(imageData);
       ctx.clearRect(0, 0, width, height);
     } else {
-      if (visibleStack === null || visibleStack === undefined) { throw 'NoImageDataError'; }
+      if (visibleStack === null || visibleStack === undefined) { throw new Error('NoImageDataError'); }
       ctx.putImageData(visibleStack, 0, 0);
       SetVisibleStack(null);
     }

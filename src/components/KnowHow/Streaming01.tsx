@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import '../../styles/KnowHow/Base.scss';
 import img_vtube_studio_x_discord from '../../images/know-how/vtube-studio-x-discord.png';
@@ -124,13 +124,15 @@ const Head: React.FC = () => {
   const url = 'https://amabie-labo.com/know_how/streaming01';
   const description = '共演者や自分を共演者の配信画面上でぬるぬる動かすための方法についてお伝えします。';
   return (
-    <Helmet>
-      <meta property="og:title" content={title} />
-      <meta property="og:type" content={type} />
-      <meta property="og:image" content={img} />
-      <meta property="og:url" content={url} />
-      <meta property="og:description" content={description} />
-    </Helmet>
+    <HelmetProvider>
+      <Helmet>
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content={type} />
+        <meta property="og:image" content={img} />
+        <meta property="og:url" content={url} />
+        <meta property="og:description" content={description} />
+      </Helmet>
+    </HelmetProvider>
   );
 }
 

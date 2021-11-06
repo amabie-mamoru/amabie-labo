@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import eosj from '../../images/murder-mystery/end-of-space-journey-banner.png';
 import eosjas from '../../images/murder-mystery/end-of-space-journey-another-story-banner.png';
 import murder_mystery from '../../images/murder-mystery-work-list-banner.png';
-import Helmet from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Index: React.FC = () => {
   const ua = window.navigator.userAgent.toLowerCase();
@@ -81,13 +81,15 @@ const Head: React.FC = () => {
   const url = 'https://amabie-labo.com/murder_mystery';
   const description = 'マーダーミステリーの作品一覧です';
   return (
-    <Helmet>
-      <meta property="og:title" content={title} />
-      <meta property="og:type" content={type} />
-      <meta property="og:image" content={img} />
-      <meta property="og:url" content={url} />
-      <meta property="og:description" content={description} />
-    </Helmet>
+    <HelmetProvider>
+      <Helmet>
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content={type} />
+        <meta property="og:image" content={img} />
+        <meta property="og:url" content={url} />
+        <meta property="og:description" content={description} />
+      </Helmet>
+    </HelmetProvider>
   );
 }
 

@@ -3,7 +3,7 @@ import '../../styles/MysterySolvingGame/Index.scss';
 import blind_girl from '../../images/mystery-solving-game/blind-girl-banner.png';
 import mystery_solving_game from '../../images/mystery-solving-game-work-list-banner.png';
 import { Link } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Index: React.FC = () => {
   const ua = window.navigator.userAgent.toLowerCase();
@@ -75,13 +75,15 @@ const Head: React.FC = () => {
   const url = 'https://amabie-labo.com/mystery_solving_game';
   const description = '謎解きの作品一覧です';
   return (
-    <Helmet>
-      <meta property="og:title" content={title} />
-      <meta property="og:type" content={type} />
-      <meta property="og:image" content={img} />
-      <meta property="og:url" content={url} />
-      <meta property="og:description" content={description} />
-    </Helmet>
+    <HelmetProvider>
+      <Helmet>
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content={type} />
+        <meta property="og:image" content={img} />
+        <meta property="og:url" content={url} />
+        <meta property="og:description" content={description} />
+      </Helmet>
+    </HelmetProvider>
   );
 }
 
