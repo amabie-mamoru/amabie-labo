@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/MurderMystery/EndOfSpaceJourneyAnotherStory.scss';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import eosjas from '../../images/murder-mystery/end-of-space-journey-another-story-banner.png';
 import prologue1 from '../../images/murder-mystery/eosjas/prologue1.png';
 import selectRole from '../../images/murder-mystery/eosjas/select-role.png';
@@ -671,12 +671,14 @@ const Head: React.FC = () => {
   const url = 'https://amabie-labo.com/murder_mystery/end_of_space_journey_another_story';
   const description = 'スペースジャーニーの結末 - アフターストーリー の配信用便利ツールです';
   return (
-    <Helmet>
-      <meta property="og:title" content={title} />
-      <meta property="og:type" content={type} />
-      <meta property="og:image" content={img} />
-      <meta property="og:url" content={url} />
-      <meta property="og:description" content={description} />
-    </Helmet>
+    <HelmetProvider>
+      <Helmet>
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content={type} />
+        <meta property="og:image" content={img} />
+        <meta property="og:url" content={url} />
+        <meta property="og:description" content={description} />
+      </Helmet>
+    </HelmetProvider>
   );
 }
