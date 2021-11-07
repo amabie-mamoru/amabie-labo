@@ -2,8 +2,10 @@ import React from 'react';
 import '../../styles/Tool/Base.scss';
 import { Link } from 'react-router-dom';
 import img_pikopiko_obs_x_discord from '../../images/tool/pikopiko-obs-x-discord.png';
+import img_pikopiko_obs_x_discord_how_to from '../../images/know-how/pikopiko-obs-x-discord.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import classNames from 'classnames';
+import Modal from 'react-modal';
 
 interface IState {
   name: string;
@@ -14,6 +16,7 @@ interface IState {
   isEdit: boolean;
   isCopied: boolean;
   isDeleted: boolean;
+  modalState: string;
 }
 
 export default class PikoPiko extends React.Component<{}, IState> {
@@ -22,6 +25,9 @@ export default class PikoPiko extends React.Component<{}, IState> {
   private idRef: React.RefObject<HTMLInputElement>;
   private imgUrlRef: React.RefObject<HTMLInputElement>;
   private registeredRef: React.RefObject<HTMLInputElement>;
+  private imgWidthRef: React.RefObject<HTMLInputElement>;
+  private imgHeightRef: React.RefObject<HTMLInputElement>;
+  private imgRef: React.RefObject<HTMLImageElement>;
 
   constructor (props: any) {
     super(props);
@@ -33,7 +39,8 @@ export default class PikoPiko extends React.Component<{}, IState> {
       registeredHash: {},
       isEdit: false,
       isCopied: false,
-      isDeleted: false
+      isDeleted: false,
+      modalState: '',
     };
     this.HandleChange = this.HandleChange.bind(this);
     this.HandleTextAreaChange = this.HandleTextAreaChange.bind(this);
@@ -49,12 +56,20 @@ export default class PikoPiko extends React.Component<{}, IState> {
     this.ToJson = this.ToJson.bind(this);
     this.DownloadJson = this.DownloadJson.bind(this);
     this.UploadJson = this.UploadJson.bind(this);
+    this.OpenClearModal = this.OpenClearModal.bind(this);
+    this.ClearData = this.ClearData.bind(this);
+    this.CloseModal = this.CloseModal.bind(this);
+    this.OpenSafeModal = this.OpenSafeModal.bind(this);
+    this.SetImageSize = this.SetImageSize.bind(this);
 
     this.textAreaRef = React.createRef();
     this.nameRef = React.createRef();
     this.idRef = React.createRef();
     this.imgUrlRef = React.createRef();
     this.registeredRef = React.createRef();
+    this.imgWidthRef = React.createRef();
+    this.imgHeightRef = React.createRef();
+    this.imgRef = React.createRef();
 
     const record = localStorage.getItem('records')
     if (record === undefined || record === null) { return; }
@@ -67,7 +82,8 @@ export default class PikoPiko extends React.Component<{}, IState> {
       registeredHash: memory.registeredHash,
       isEdit: false,
       isCopied: false,
-      isDeleted: false
+      isDeleted: false,
+      modalState: ''
     };
   }
 
@@ -80,8 +96,10 @@ export default class PikoPiko extends React.Component<{}, IState> {
       registeredHash: state.registeredHash,
       isEdit: state.isEdit,
       isCopied: state.isCopied,
-      isDeleted: state.isDeleted
+      isDeleted: state.isDeleted,
+      modalState: state.modalState
     }));
+    this.SetImageSize();
     // setState の反映は Lifecycle 的にまだなので e を渡す
     if (type === 'isEdit' || this.state.isEdit) {
       this.EditCode(type, e);
@@ -99,7 +117,8 @@ export default class PikoPiko extends React.Component<{}, IState> {
       registeredHash: state.registeredHash,
       isEdit: state.isEdit,
       isCopied: state.isCopied,
-      isDeleted: state.isDeleted
+      isDeleted: state.isDeleted,
+      modalState: state.modalState
     }))
   }
 
@@ -132,7 +151,8 @@ export default class PikoPiko extends React.Component<{}, IState> {
       registeredHash: state.registeredHash,
       isEdit: !state.isEdit,
       isCopied: state.isCopied,
-      isDeleted: state.isDeleted
+      isDeleted: state.isDeleted,
+      modalState: state.modalState
     }));
     this.textAreaRef.current.readOnly = !this.state.isEdit;
     if (!this.state.isEdit) {
@@ -158,7 +178,8 @@ export default class PikoPiko extends React.Component<{}, IState> {
       registeredHash: records,
       isEdit: state.isEdit,
       isCopied: state.isCopied,
-      isDeleted: state.isDeleted
+      isDeleted: state.isDeleted,
+      modalState: state.modalState
     }));
     localStorage.setItem('records', this.Stringify(records));
   }
@@ -175,7 +196,8 @@ export default class PikoPiko extends React.Component<{}, IState> {
       registeredHash: records,
       isEdit: state.isEdit,
       isCopied: state.isCopied,
-      isDeleted: true
+      isDeleted: true,
+      modalState: state.modalState
     }));
     localStorage.setItem('records', this.Stringify(records));
     setTimeout(() => {
@@ -187,7 +209,8 @@ export default class PikoPiko extends React.Component<{}, IState> {
         registeredHash: state.registeredHash,
         isEdit: state.isEdit,
         isCopied: state.isCopied,
-        isDeleted: false
+        isDeleted: false,
+        modalState: state.modalState
       }));
     }, 3000);
   }
@@ -203,7 +226,8 @@ export default class PikoPiko extends React.Component<{}, IState> {
       registeredHash: state.registeredHash,
       isEdit: state.isEdit,
       isCopied: state.isCopied,
-      isDeleted: state.isDeleted
+      isDeleted: state.isDeleted,
+      modalState: state.modalState
     }));
     if (this.nameRef === null || this.nameRef.current === null) return;
     this.nameRef.current.value = value;
@@ -240,7 +264,8 @@ export default class PikoPiko extends React.Component<{}, IState> {
       registeredHash: state.registeredHash,
       isEdit: state.isEdit,
       isCopied: true,
-      isDeleted: state.isDeleted
+      isDeleted: state.isDeleted,
+      modalState: state.modalState
     }));
     setTimeout(() => {
       this.setState(state => ({
@@ -251,7 +276,8 @@ export default class PikoPiko extends React.Component<{}, IState> {
         registeredHash: state.registeredHash,
         isEdit: state.isEdit,
         isCopied: false,
-        isDeleted: state.isDeleted
+        isDeleted: state.isDeleted,
+        modalState: state.modalState
       }));
     }, 3000);
   }
@@ -299,11 +325,88 @@ export default class PikoPiko extends React.Component<{}, IState> {
         registeredHash: memory.registeredHash,
         isEdit: false,
         isCopied: false,
-        isDeleted: false
+        isDeleted: false,
+        modalState: ''
       }));
       localStorage.setItem('records', this.Stringify(memory.registeredHash))
     }
     reader.readAsText(file);
+  }
+
+  OpenClearModal (): void {
+    this.setState(state => ({
+      name: state.name,
+      id: state.id,
+      imgUrl: state.imgUrl,
+      rawCode: state.rawCode,
+      registeredHash: state.registeredHash,
+      isEdit: state.isEdit,
+      isCopied: state.isCopied,
+      isDeleted: state.isDeleted,
+      modalState: 'openClearModal'
+    }));
+  }
+
+  ClearData (): void {
+    localStorage.removeItem('records');
+    this.setState(state => ({
+      name: '',
+      id: '',
+      imgUrl: '',
+      rawCode: DefaultCode(),
+      registeredHash: '',
+      isEdit: state.isEdit,
+      isCopied: state.isCopied,
+      isDeleted: state.isDeleted,
+      modalState: ''
+    }));
+    if (this.nameRef === null || this.nameRef.current === null) return;
+    this.nameRef.current.value = '';
+    if (this.idRef === null || this.idRef.current === null) return;
+    this.idRef.current.value = '';
+    if (this.imgUrlRef === null || this.imgUrlRef.current === null) return;
+    this.imgUrlRef.current.value = '';
+    if (this.textAreaRef === null || this.textAreaRef.current === null) return;
+    this.textAreaRef.current.value = DefaultCode();
+    if (this.registeredRef === null || this.registeredRef.current === null) return;
+    this.registeredRef.current.value = '';
+  }
+
+  CloseModal(): void {
+    this.setState(state => ({
+      name: state.name,
+      id: state.id,
+      imgUrl: state.imgUrl,
+      rawCode: state.rawCode,
+      registeredHash: state.registeredHash,
+      isEdit: state.isEdit,
+      isCopied: state.isCopied,
+      isDeleted: state.isDeleted,
+      modalState: ''
+    }));
+  }
+
+  OpenSafeModal(): void {
+    this.setState(state => ({
+      name: state.name,
+      id: state.id,
+      imgUrl: state.imgUrl,
+      rawCode: state.rawCode,
+      registeredHash: state.registeredHash,
+      isEdit: state.isEdit,
+      isCopied: state.isCopied,
+      isDeleted: state.isDeleted,
+      modalState: 'openSafeModal'
+    }));
+  }
+
+  SetImageSize(): void {
+    if (this.imgRef === null || this.imgRef.current === null) return;
+    const img: HTMLImageElement = this.imgRef.current;
+    if (this.imgWidthRef === null || this.imgWidthRef.current === null) return;
+    if (this.imgHeightRef === null || this.imgHeightRef.current === null) return;
+    this.imgWidthRef.current.value = img.naturalWidth.toString();
+    this.imgHeightRef.current.value = img.naturalHeight.toString();
   }
 
   render () {
@@ -313,8 +416,44 @@ export default class PikoPiko extends React.Component<{}, IState> {
     return (
       <div className="t-pikopiko">
         <Head />
-        <h2>ピコピコを楽に生成ツール</h2>
-        <section className="t-pikopiko-section">
+        <h2>OBSでピコピコを楽に生成ツール</h2>
+        <section className="t-pikopiko-description">
+          <h3>使い方</h3>
+          <div className="t-pikopiko-description-content">
+            <a href="/know_how/streaming02">
+              <img src={img_pikopiko_obs_x_discord_how_to} alt="「OBSでピコピコを楽に生成ツール」の使い方" />
+            </a>
+          </div>
+        </section>
+        <section className="t-pikopiko-safe">
+          <h3>データの安全性について</h3>
+          <button onClick={this.OpenSafeModal}>安全性に関する詳細</button>
+          <Modal
+            isOpen={this.state.modalState === 'openSafeModal'}
+            onRequestClose={this.CloseModal}
+            className="t-pikopiko-safe-modal"
+            ariaHideApp={false}
+          >
+            <div className="t-pikopiko-safe-modal-content">
+              <p>
+                このサイトで扱うデータはブラウザごとにブラウザのデータとして保存しています。<br />
+                サーバにデータを保存してはいませんので安心してご利用ください。<br />
+              </p>
+              <p>
+                同じパソコンでも違うブラウザであったり、違うパソコンで利用するとデータは引き継がれません。<br />
+                他のブラウザやパソコンでも利用したい場合はダウンロード(DL)の機能をご利用ください。<br />
+              </p>
+              <p>
+                ただし、悪意のある第三者がブラウザのデータを盗もうとした場合は対処できません。<br />
+                心配な方は利用後、「データを消去する」を実行すればブラウザにデータは残りません。<br />
+              </p>
+              <div className="t-pikopiko-safe-modal-content-close">
+                <button onClick={this.CloseModal}>閉じる</button>
+              </div>
+            </div>
+          </Modal>
+        </section>
+        <section>
           <section className="t-pikopiko-input">
             <section className="t-pikopiko-input-field">
               <h3>新規</h3>
@@ -346,9 +485,34 @@ export default class PikoPiko extends React.Component<{}, IState> {
               </div>
               <div className="t-pikopiko-input-candidate-register">
                 <section>
-                  <button onClick={this.DownloadJson.bind(this)}>データをDLする</button>
+                  <button onClick={this.DownloadJson}>データをDLする</button>
                   <button><label htmlFor="upload">データをアップする</label></button>
-                  <input className="t-pikopiko-input-candidate-register-upload-input" type="file" id="upload" onChange={this.UploadJson.bind(this)} />
+                  <input className="t-pikopiko-input-candidate-register-upload-input" type="file" id="upload" onChange={this.UploadJson} />
+                </section>
+                <section>
+                  <button onClick={this.OpenClearModal}>データを消去する</button>
+                  <Modal
+                    isOpen={this.state.modalState === 'openClearModal'}
+                    onRequestClose={this.CloseModal}
+                    className="t-pikopiko-input-clear-modal"
+                    ariaHideApp={false}
+                  >
+                    <section className="t-pikopiko-input-clear-modal-content">
+                      <h2 className="t-pikopiko-input-clear-modal-content-h2">⚠️注意⚠️</h2>
+                      <section className="t-pikopiko-input-clear-modal-content-description">
+                        <p>データを消去すると、登録済みのデータが全て消えてしまいます!!</p>
+                        <p>データを消去する前に一度データをDLすることを推奨します</p>
+                        <div className="t-pikopiko-input-clear-modal-content-dl">
+                          <button onClick={this.DownloadJson}>データをDLする</button>
+                        </div>
+                        <p>本当に消してもいいですか？</p>
+                      </section>
+                      <section>
+                        <button className="t-pikopiko-input-clear-modal-content-clear" onClick={this.ClearData}>消していいよ！</button>
+                        <button onClick={this.CloseModal}>やっぱやめとく！</button>
+                      </section>
+                    </section>
+                  </Modal>
                 </section>
               </div>
             </section>
@@ -356,8 +520,16 @@ export default class PikoPiko extends React.Component<{}, IState> {
           <section className="t-pikopiko-preview">
             <h3>プレビュー</h3>
             <div className="t-pikopiko-preview-section">
-              <img className="t-pikopiko-preview-img" src={this.state.imgUrl} alt={this.state.imgUrl === '' ? '' : 'URLが間違っているかURLの画像が削除された可能性があります'} />
+              <img className="t-pikopiko-preview-img" src={this.state.imgUrl} alt={this.state.imgUrl === '' ? '' : 'URLが間違っているかURLの画像が削除された可能性があります'} ref={this.imgRef} onLoad={this.SetImageSize} />
             </div>
+            <section className="t-pikopiko-preview-size">
+              <div>
+                　幅：<input type="text" ref={this.imgWidthRef} readOnly />px
+              </div>
+              <div>
+                高さ：<input type="text" ref={this.imgHeightRef} readOnly />px
+              </div>
+            </section>
           </section>
           <section className="t-pikopiko-code">
             <section className="t-pikopiko-code-h">
@@ -433,11 +605,11 @@ const BackButton: React.FC = () => {
 }
 
 const Head: React.FC = () => {
-  const title = 'ピコピコを楽に生成ツール';
+  const title = 'OBSでピコピコを楽に生成ツール';
   const type = 'website';
   const img = `https://amabie-labo.com${img_pikopiko_obs_x_discord}`;
   const url = 'https://amabie-labo.com/tool/pikopiko';
-  const description = 'ピコピコを楽に生成するためのツールです';
+  const description = 'OBSでピコピコを楽に生成するためのツールです';
   return (
     <HelmetProvider>
       <Helmet>
