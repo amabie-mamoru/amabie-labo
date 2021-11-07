@@ -6,6 +6,7 @@
     ul {
       list-style: none;
       li {
+        margin: 20px;
         a {
           &:hover {
             opacity: .5;
@@ -42,6 +43,24 @@
     &-image {
       text-align: center;
       margin: 30px 0;
+    }
+    &-quote {
+      margin: 20px 80px;
+      border: 1px solid $gray;
+      border-radius: 5px;
+      padding: 20px;
+      &-content {
+        border-left: 5px solid $gray;
+        padding-left: 5px;
+        color: $gray-readable;
+        &-description {
+          font-size: 0.9rem;
+        }
+        &:hover {
+          border-left: 5px solid $aqua;
+          text-decoration: underline;
+        }
+      }
     }
     &-margin20 {
       margin: 20px 0;
