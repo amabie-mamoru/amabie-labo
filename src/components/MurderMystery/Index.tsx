@@ -5,6 +5,7 @@ import eosj from '../../images/murder-mystery/end-of-space-journey-banner.png';
 import eosjas from '../../images/murder-mystery/end-of-space-journey-another-story-banner.png';
 import murder_mystery from '../../images/murder-mystery-work-list-banner.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ReactGA from 'react-ga';
 
 const Index: React.FC = () => {
   const ua = window.navigator.userAgent.toLowerCase();
@@ -80,6 +81,8 @@ const Head: React.FC = () => {
   const img = `https://amabie-labo.com${murder_mystery}`;
   const url = 'https://amabie-labo.com/murder_mystery';
   const description = 'マーダーミステリーの作品一覧です';
+  ReactGA.initialize('UA-195013640-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <HelmetProvider>
       <Helmet>

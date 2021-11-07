@@ -11,6 +11,7 @@ import img_tool02 from '../../images/know-how/pikopiko-obs-x-discord/tool02.png'
 import img_tool03 from '../../images/know-how/pikopiko-obs-x-discord/tool03.png';
 import img_tool04 from '../../images/know-how/pikopiko-obs-x-discord/tool04.png';
 import img_tool05 from '../../images/know-how/pikopiko-obs-x-discord/tool05.png';
+import ReactGA from 'react-ga';
 
 const Index: React.FC = () => {
   return (
@@ -143,6 +144,8 @@ const Head: React.FC = () => {
   const img = `https://amabie-labo.com${img_pikopiko_obs_x_discord_how_to}`;
   const url = 'https://amabie-labo.com/know_how/streaming02';
   const description = '「OBSでピコピコを楽に生成ツール」の使い方について説明します。';
+  ReactGA.initialize('UA-195013640-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <HelmetProvider>
       <Helmet>

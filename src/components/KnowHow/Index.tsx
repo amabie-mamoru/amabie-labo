@@ -5,6 +5,7 @@ import img_pikopiko_obs_x_discord from '../../images/know-how/pikopiko-obs-x-dis
 import img_vtube_studio_x_discord from '../../images/know-how/vtube-studio-x-discord.png';
 import know_how_streaming from '../../images/homepage-know-how-streaming-banner.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ReactGA from 'react-ga';
 
 const Index: React.FC = () => {
   return (
@@ -26,6 +27,8 @@ const Head: React.FC = () => {
   const img = `https://amabie-labo.com${know_how_streaming}`;
   const url = 'https://amabie-labo.com/know_how';
   const description = '配信のお役立ち情報です';
+  ReactGA.initialize('UA-195013640-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <HelmetProvider>
       <Helmet>

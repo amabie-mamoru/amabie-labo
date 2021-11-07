@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Canvas from '../Canvas';
 import blind_girl from '../../images/mystery-solving-game/blind-girl-banner.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ReactGA from 'react-ga';
 
 interface IState {
   missionId: number;
@@ -184,6 +185,8 @@ const Head: React.FC = () => {
   const img = `https://amabie-labo.com${blind_girl}`;
   const url = 'https://amabie-labo.com/mystery_solving_game/blind_girl';
   const description = '盲目少女の奇妙な一日プレイ用ツールです';
+  ReactGA.initialize('UA-195013640-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <HelmetProvider>
       <Helmet>

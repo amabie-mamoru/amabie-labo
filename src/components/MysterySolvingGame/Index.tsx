@@ -4,6 +4,7 @@ import blind_girl from '../../images/mystery-solving-game/blind-girl-banner.png'
 import mystery_solving_game from '../../images/mystery-solving-game-work-list-banner.png';
 import { Link } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ReactGA from 'react-ga';
 
 const Index: React.FC = () => {
   const ua = window.navigator.userAgent.toLowerCase();
@@ -74,6 +75,8 @@ const Head: React.FC = () => {
   const img = `https://amabie-labo.com${mystery_solving_game}`;
   const url = 'https://amabie-labo.com/mystery_solving_game';
   const description = '謎解きの作品一覧です';
+  ReactGA.initialize('UA-195013640-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <HelmetProvider>
       <Helmet>

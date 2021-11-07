@@ -6,6 +6,7 @@ import img_pikopiko_obs_x_discord_how_to from '../../images/know-how/pikopiko-ob
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import classNames from 'classnames';
 import Modal from 'react-modal';
+import ReactGA from 'react-ga';
 
 interface IState {
   name: string;
@@ -610,6 +611,8 @@ const Head: React.FC = () => {
   const img = `https://amabie-labo.com${img_pikopiko_obs_x_discord}`;
   const url = 'https://amabie-labo.com/tool/pikopiko';
   const description = 'OBSでピコピコを楽に生成するためのツールです';
+  ReactGA.initialize('UA-195013640-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <HelmetProvider>
       <Helmet>

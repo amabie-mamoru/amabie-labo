@@ -3,6 +3,7 @@ import '../../styles/MurderMystery/EndOfSpaceJourneyAnotherStory.scss';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ReactGA from 'react-ga';
 import eosjas from '../../images/murder-mystery/end-of-space-journey-another-story-banner.png';
 import prologue1 from '../../images/murder-mystery/eosjas/prologue1.png';
 import selectRole from '../../images/murder-mystery/eosjas/select-role.png';
@@ -670,6 +671,8 @@ const Head: React.FC = () => {
   const img = `https://amabie-labo.com${eosjas}`;
   const url = 'https://amabie-labo.com/murder_mystery/end_of_space_journey_another_story';
   const description = 'スペースジャーニーの結末 - アフターストーリー の配信用便利ツールです';
+  ReactGA.initialize('UA-195013640-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <HelmetProvider>
       <Helmet>

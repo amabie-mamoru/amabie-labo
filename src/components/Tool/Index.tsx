@@ -3,6 +3,7 @@ import '../../styles/Tool/Base.scss';
 import { Link } from 'react-router-dom';
 import img_pikopiko_obs_x_discord from '../../images/tool/pikopiko-obs-x-discord.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ReactGA from 'react-ga';
 
 const Index: React.FC = () => {
   return (
@@ -35,6 +36,8 @@ const Head: React.FC = () => {
   const img = `https://amabie-labo.com${img_pikopiko_obs_x_discord}`;
   const url = 'https://amabie-labo.com/tool';
   const description = '便利ツールです';
+  ReactGA.initialize('UA-195013640-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <HelmetProvider>
       <Helmet>
