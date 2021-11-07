@@ -8,6 +8,7 @@ import know_how_streaming from '../images/homepage-know-how-streaming-banner.png
 import Typewriter from 'typewriter-effect';
 import { Link } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ReactGA from 'react-ga';
 
 interface IState {
   isVisibleMessage: boolean;
@@ -78,6 +79,8 @@ const Head: React.FC = () => {
   const img = 'https://amabie-labo.com/ogp.png';
   const url = 'https://amabie-labo.com';
   const description = '天日江護の公式サイトです';
+  ReactGA.initialize('UA-195013640-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <HelmetProvider>
       <Helmet>

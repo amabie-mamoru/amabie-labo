@@ -9,6 +9,7 @@ import img_xsplit02 from '../../images/know-how/vtube-studio-x-discord/xsplit-br
 import img_discord01 from '../../images/know-how/vtube-studio-x-discord/discord01.png';
 import img_discord02 from '../../images/know-how/vtube-studio-x-discord/discord02.png';
 import img_discord03 from '../../images/know-how/vtube-studio-x-discord/discord03.png';
+import ReactGA from 'react-ga';
 
 const Index: React.FC = () => {
   return (
@@ -123,6 +124,8 @@ const Head: React.FC = () => {
   const img = `https://amabie-labo.com${img_vtube_studio_x_discord}`;
   const url = 'https://amabie-labo.com/know_how/streaming01';
   const description = '共演者や自分を共演者の配信画面上でぬるぬる動かすための方法についてお伝えします。';
+  ReactGA.initialize('UA-195013640-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <HelmetProvider>
       <Helmet>
