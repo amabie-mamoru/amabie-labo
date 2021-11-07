@@ -17,7 +17,7 @@ const Index: React.FC = () => {
     <div className="kh-show">
       <Head />
       <h2>「OBSでピコピコを楽に生成ツール」の使い方</h2>
-      <p className="kh-show-timestamp">2021.11.12</p>
+      <p className="kh-show-timestamp">2021.11.07</p>
       <p>
         こんびえ〜🧜‍♂️天日江護です🐳<br />
         今回は便利ツールを作ってきたのでその使い方の紹介です⛱<br />
