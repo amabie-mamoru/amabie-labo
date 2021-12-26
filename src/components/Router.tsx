@@ -5,6 +5,7 @@ import MurderMysteryRouter from './MurderMystery/Router';
 import MysterySolvingGameRouter from './MysterySolvingGame/Router';
 import ToolRouter from './Tool/Router';
 import KnowHowRouter from './KnowHow/Router';
+import GameArticleRouter from './GameArticle/Router';
 import NotFound from './NotFound';
 
 const Router: React.FC = () => {
@@ -18,6 +19,7 @@ const Router: React.FC = () => {
           <Route path='/mystery_solving_game' component={MysterySolvingGameRouter} />
           <Route path='/tool' component={ToolRouter} />
           <Route path='/know_how' component={KnowHowRouter} />
+          <Route path='/game_article' component={GameArticleRouter} />
           <Route path='*' component={NotFound} />
         </Switch>
         <Footer />

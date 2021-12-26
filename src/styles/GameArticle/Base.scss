@@ -1,0 +1,120 @@
+@import '../Variables';
+.ga {
+  &-index {
+    text-align: center;
+    h2 { margin: 10px 0; }
+    ul {
+      list-style: none;
+      li {
+        margin: 20px;
+        a {
+          &:hover {
+            opacity: .5;
+          }
+        }
+        img { width: 600px; }
+      }
+    }
+  }
+
+  &-show {
+    width: 800px;
+    @media screen and (max-width: 820px) {
+      width: 640px;
+    }
+    @media screen and (max-width: 640px) {
+      width: 320px;
+    }
+    margin: 0 auto;
+    h2 {
+      border-left: 10px solid $aqua;
+      border-bottom: 2px solid $aqua;
+      padding-left: 10px;
+      &:before {
+        padding-right: 20px;
+      }
+    }
+    &-timestamp {
+      text-align: right;
+    }
+    &-inline-center {
+      text-align: center;
+    }
+    &-image {
+      text-align: center;
+      margin: 30px 0;
+      &-double {
+        text-align: center;
+        margin: 30px 0;
+        img {
+          vertical-align: middle;
+          width: 50%;
+        }
+      }
+    }
+    &-quote {
+      margin: 20px 80px;
+      border: 1px solid $gray;
+      border-radius: 5px;
+      padding: 20px;
+      &-content {
+        border-left: 5px solid $gray;
+        padding-left: 5px;
+        color: $gray-readable;
+        &-description {
+          font-size: 0.9rem;
+        }
+        &:hover {
+          border-left: 5px solid $aqua;
+          text-decoration: underline;
+        }
+      }
+    }
+    &-margin20 {
+      margin: 20px 0;
+    }
+    h3 {
+      border-left: 5px solid $aqua;
+      padding-left: 5px;
+      margin: 20px 0;
+    }
+    a {
+      &:hover {
+        img {
+          opacity: .5;
+        }
+      }
+    }
+
+    &-back-button {
+      text-align: center;
+      margin: 50px 0 0;
+    }
+
+    &-poke {
+      img {
+        vertical-align: bottom;
+      }
+      &-profile {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 10px 0;
+        img {
+          width: 50px;
+          vertical-align: bottom;
+        }
+      }
+      &-desc {
+        margin: 40px 0;
+      }
+    }
+    iframe {
+      width: 560px;
+      height: 315px;
+      @media screen and (max-width: 640px) {
+        width: 320px;
+        height: 180px;
+      }
+    }
+  }
+}
