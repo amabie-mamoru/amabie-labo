@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../styles/GameArticle/Base.scss';
 import { Link } from 'react-router-dom';
-import img_vtube_studio_x_discord from '../../images/know-how/vtube-studio-x-discord.png';
 import img_pokemon from '../../images/game-article/pokemon-banner.png';
 import img_game_article from '../../images/game-article-banner.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';

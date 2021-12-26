@@ -6,7 +6,6 @@ import img_thumb from '../../../images/game-article/pokemon/sword-x-shield01/fla
 import img_party from '../../../images/game-article/pokemon/sword-x-shield01/party.jpg';
 import img_detail from '../../../images/game-article/pokemon/sword-x-shield01/detail.png';
 import img_ranking from '../../../images/game-article/pokemon/sword-x-shield01/ranking.png';
-import img_result from '../../../images/game-article/pokemon/sword-x-shield01/result.jpg';
 import ico_cryogonal from '../../../images/game-article/pokemon/Cryogonal.gif';
 import ico_dragalge from '../../../images/game-article/pokemon/Dragalge.gif';
 import ico_flareon from '../../../images/game-article/pokemon/Flareon.gif';
@@ -73,7 +72,7 @@ const SwordShield01: React.FC = () => {
           <img src={ico_flareon} alt="ブースター" />が<img src={ico_wailord} alt="ホエルオー" />と対面したときの引き先。<br />
           <img src={ico_tangrowth} alt="モジャンボ" />の幻影に怯えてもらって地震より冷Bを打ってもらえるかなと期待。<br />
           冷Bなら2耐えするし、いざとなれば堪えるイバンで乱数勝負以上ができる。<br />
-          H は偶数はやめよう。
+          Hは偶数はやめよう。
         </p>
       </p>
       <p>
@@ -89,7 +88,7 @@ const SwordShield01: React.FC = () => {
         ここまでで <img src={ico_dragalge} alt="ドラミドロ" />の受けが成立しないので採用。<br />
         クレフ対面に強く出たかったのでC特化してラスカに瞑想も完備。後続に身代わりは残させない立ち回りを心がけた。<br />
         <img src={ico_tangrowth} alt="モジャンボ" />は<img src={ico_flareon} alt="ブースター" />でも<img src={ico_dragalge} alt="ドラミドロ" />でもワンパンできるが、先に葉緑素を展開されたときに受けが成立しないので悪戯心電磁浮遊でガンメタして日差しがなくなるまで無力化した。<br />
-        食べ残し持ちで H が 4n なこと以外は環境に特化した優秀な子。
+        食べ残し持ちでHが4nなこと以外は環境に特化した優秀な子。
       </p>
       <p>
         <p className="ga-show-poke-profile">
@@ -132,34 +131,12 @@ const BackButton: React.FC = () => {
   );
 }
 
-interface IProps {
-  title: string;
-  link: string;
-  imgUrl: string;
-  description: string;
-}
-
-const Quote: React.FC<IProps> = (props) => {
-  const { title, link, imgUrl, description } = props
-  return (
-    <div className="ga-show-quote">
-      <div className="ga-show-quote-content">
-        <a href={link} target="_blank" rel="noreferrer">
-          <p>{title}</p>
-          <p className="ga-show-quote-content-description">{description}</p>
-          <img src={imgUrl} alt={title} />
-        </a>
-      </div>
-    </div>
-  )
-}
-
 const Head: React.FC = () => {
-  const title = '';
+  const title = '【ブースターさいきょうけっていせん】ブースターのド根性【最終8位】';
   const type = 'article';
   const img = `https://amabie-labo.com${img_thumb}`;
   const url = 'https://amabie-labo.com/game_article/pokemon/sword_x_shield01';
-  const description = '共演者や自分を共演者の配信画面上でぬるぬる動かすための方法についてお伝えします。';
+  const description = '【ブースターさいきょうけっていせん】ブースターのド根性【最終8位】のときのポケモン剣盾構築記事です。';
   ReactGA.initialize('UA-195013640-1');
   ReactGA.pageview(window.location.pathname + window.location.search);
   return (

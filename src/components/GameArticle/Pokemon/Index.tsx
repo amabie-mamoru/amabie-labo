@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../../styles/GameArticle/Base.scss';
 import { Link } from 'react-router-dom';
-import img_pokemon from '../../../images/game-article/pokemon-banner.png';
 import img_game_article from '../../../images/game-article-banner.png';
 import img_flareon_battle from '../../../images/game-article/pokemon/sword-x-shield01/flareon-strongest-battle.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
