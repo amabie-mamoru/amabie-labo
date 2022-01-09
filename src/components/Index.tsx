@@ -4,7 +4,8 @@ import amabie from '../images/amabie.png';
 import murder_mystery from '../images/murder-mystery-work-list-banner.png';
 import mystery_solving_game from '../images/mystery-solving-game-work-list-banner.png';
 import img_pikopiko_obs_x_discord from '../images/tool/pikopiko-obs-x-discord.png';
-import know_how_streaming from '../images/homepage-know-how-streaming-banner.png';
+import know_how_streaming from '../images/know-how-streaming-banner.png';
+import img_game_article from '../images/game-article-banner.png';
 import Typewriter from 'typewriter-effect';
 import { Link } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
@@ -65,6 +66,12 @@ class Index extends React.Component<{}, IState> {
           <div className="index__know-how--streaming">
             <Link to="/know_how">
               <img src={know_how_streaming} alt="配信お役立ち情報" />
+            </Link>
+          </div>
+          <h2 className="index__article-h2">記事</h2>
+          <div className="index__article--game">
+            <Link to="/game_article">
+              <img src={img_game_article} alt="ゲーム関連記事" />
             </Link>
           </div>
         </section>

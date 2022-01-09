@@ -32,11 +32,13 @@
       }
     }
   }
-  &__know-how {
+  &__know-how,
+  &__article {
     &-h2 {
       margin: 10px;
     }
-    &--streaming {
+    &--streaming,
+    &--game {
       $n: &;
       margin: 20px;
       img {

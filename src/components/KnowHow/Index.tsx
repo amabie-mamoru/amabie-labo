@@ -3,7 +3,7 @@ import '../../styles/KnowHow/Base.scss';
 import { Link } from 'react-router-dom';
 import img_pikopiko_obs_x_discord from '../../images/know-how/pikopiko-obs-x-discord.png';
 import img_vtube_studio_x_discord from '../../images/know-how/vtube-studio-x-discord.png';
-import know_how_streaming from '../../images/homepage-know-how-streaming-banner.png';
+import know_how_streaming from '../../images/know-how-streaming-banner.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import ReactGA from 'react-ga';
 
