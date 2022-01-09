@@ -6,12 +6,7 @@ import img_thumb from '../../../images/game-article/pokemon/sword-x-shield01/fla
 import img_party from '../../../images/game-article/pokemon/sword-x-shield01/party.jpg';
 import img_detail from '../../../images/game-article/pokemon/sword-x-shield01/detail.png';
 import img_ranking from '../../../images/game-article/pokemon/sword-x-shield01/ranking.png';
-import ico_cryogonal from '../../../images/game-article/pokemon/Cryogonal.gif';
-import ico_dragalge from '../../../images/game-article/pokemon/Dragalge.gif';
-import ico_flareon from '../../../images/game-article/pokemon/Flareon.gif';
-import ico_klefki from '../../../images/game-article/pokemon/Klefki.gif';
-import ico_tangrowth from '../../../images/game-article/pokemon/Tangrowth.gif';
-import ico_wailord from '../../../images/game-article/pokemon/Wailord.gif';
+import { PokemonIcon } from './MonsterHelper';
 
 import ReactGA from 'react-ga';
 
@@ -26,7 +21,7 @@ const SwordShield01: React.FC = () => {
       </p>
       <p>
         こんびえ〜🧜‍♂️天日江護です🐳<br />
-        過去の仲間大会ですがポケモンの実績を残しておこうと思って構築を公開していくことにしました⛱ <br />
+        過去の仲間大会ですがポケモンの実績を残しておこうと思って構築を公開していくことにしました⛱ 
       </p>
       <h3>大会の概要</h3>
       <p>
@@ -37,12 +32,12 @@ const SwordShield01: React.FC = () => {
       </p>
       <h3>構築のコンセプト</h3>
       <p className="ga-show-poke">
-        初手ダイマならぬ初手<img src={ico_flareon} alt="ブースター" />で圧をかける構築
+        初手ダイマならぬ初手<PokemonIcon name="ブースター" />で圧をかける構築
       </p>
       <h3>個体紹介</h3>
       <p className="ga-show-poke">
         <p className="ga-show-poke-profile">
-          <img src={ico_flareon} alt="ブースター" />ブースター@どくどくだま
+          <PokemonIcon name="ブースター" />ブースター@どくどくだま
         </p>
         <p>
           特性：こんじょう<br />
@@ -52,15 +47,15 @@ const SwordShield01: React.FC = () => {
         </p>
         <p className="ga-show-poke-desc">
           構築の主軸。<br />
-          初手 <img src={ico_klefki} alt="クレッフィ" />が多そうだなと思ったので先に展開を阻害する意味で初手要員に採用。<br />
-          <img src={ico_flareon} alt="ブースター" />はパワフルハーブ穴を掘る警戒でまもる。<br />
-          <img src={ico_klefki} alt="クレッフィ" />は電磁波警戒でまもる。<br />
+          初手<PokemonIcon name="クレッフィ" />が多そうだなと思ったので先に展開を阻害する意味で初手要員に採用。<br />
+          <PokemonIcon name="ブースター" />はパワフルハーブ穴を掘る警戒でまもる。<br />
+          <PokemonIcon name="クレッフィ" />は電磁波警戒でまもる。<br />
           それ以外は初手対面しなかった気がする。
         </p>
       </p>
       <p>
         <p className="ga-show-poke-profile">
-          <img src={ico_dragalge} alt="ドラミドロ" />ドラミドロ@イバンのみ
+          <PokemonIcon name="ドラミドロ" />ドラミドロ@イバンのみ
         </p>
         <p>
           特性：てきおうりょく<br />
@@ -69,15 +64,15 @@ const SwordShield01: React.FC = () => {
           技構成：ヘドロウェーブ / りゅうせいぐん / ねっとう / こらえる
         </p>
         <p className="ga-show-poke-desc">
-          <img src={ico_flareon} alt="ブースター" />が<img src={ico_wailord} alt="ホエルオー" />と対面したときの引き先。<br />
-          <img src={ico_tangrowth} alt="モジャンボ" />の幻影に怯えてもらって地震より冷Bを打ってもらえるかなと期待。<br />
+          <PokemonIcon name="ブースター" />が<PokemonIcon name="ホエルオー" />と対面したときの引き先。<br />
+          <PokemonIcon name="モジャンボ" />の幻影に怯えてもらって地震より冷Bを打ってもらえるかなと期待。<br />
           冷Bなら2耐えするし、いざとなれば堪えるイバンで乱数勝負以上ができる。<br />
           Hは偶数はやめよう。
         </p>
       </p>
       <p>
         <p className="ga-show-poke-profile">
-          <img src={ico_klefki} alt="クレッフィ" />クレッフィ@たべのこし
+          <PokemonIcon name="クレッフィ" />クレッフィ@たべのこし
         </p>
         特性：いたずらごころ<br />
         性格：ひかえめ<br />
@@ -85,14 +80,14 @@ const SwordShield01: React.FC = () => {
         技構成：みがわり / めいそう / でんじふゆう / ラスターカノン
       </p>
       <p className="ga-show-poke-desc">
-        ここまでで <img src={ico_dragalge} alt="ドラミドロ" />の受けが成立しないので採用。<br />
+        ここまでで<PokemonIcon name="ドラミドロ" />の受けが成立しないので採用。<br />
         クレフ対面に強く出たかったのでC特化してラスカに瞑想も完備。後続に身代わりは残させない立ち回りを心がけた。<br />
-        <img src={ico_tangrowth} alt="モジャンボ" />は<img src={ico_flareon} alt="ブースター" />でも<img src={ico_dragalge} alt="ドラミドロ" />でもワンパンできるが、先に葉緑素を展開されたときに受けが成立しないので悪戯心電磁浮遊でガンメタして日差しがなくなるまで無力化した。<br />
+        <PokemonIcon name="モジャンボ" />は<PokemonIcon name="ブースター" />でも<PokemonIcon name="ドラミドロ" />でもワンパンできるが、先に葉緑素を展開されたときに受けが成立しないので悪戯心電磁浮遊でガンメタして日差しがなくなるまで無力化した。<br />
         食べ残し持ちでHが4nなこと以外は環境に特化した優秀な子。
       </p>
       <p>
         <p className="ga-show-poke-profile">
-          <img src={ico_wailord} alt="ホエルオー" /><img src={ico_tangrowth} alt="モジャンボ" /><img src={ico_cryogonal} alt="フリージオ" />補欠
+          <PokemonIcon name="ホエルオー" /><PokemonIcon name="モジャンボ" /><PokemonIcon name="フリージオ" />補欠
         </p>
         <p className="ga-show-poke-desc">
           選出を絞らせないようにするために野生のポケモンを捕まえてそのまま採用。
@@ -100,7 +95,7 @@ const SwordShield01: React.FC = () => {
       </p>
       <h3>選出例</h3>
       <p className="ga-show-poke">
-        今回は大会の性質上、選出を迷う意味がないので <img src={ico_flareon} alt="ブースター" /><img src={ico_dragalge} alt="ドラミドロ" /><img src={ico_klefki} alt="クレッフィ" /> で確定。
+        今回は大会の性質上、選出を迷う意味がないので<PokemonIcon name="ブースター" /><PokemonIcon name="ドラミドロ" /><PokemonIcon name="クレッフィ" /> で確定。
       </p>
       <h3>結果</h3>
       <p>

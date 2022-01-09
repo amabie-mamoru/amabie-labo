@@ -3,6 +3,7 @@ import '../../../styles/GameArticle/Base.scss';
 import { Link } from 'react-router-dom';
 import img_game_article from '../../../images/game-article-banner.png';
 import img_flareon_battle from '../../../images/game-article/pokemon/sword-x-shield01/flareon-strongest-battle.png';
+import img_metronome_battle from '../../../images/game-article/pokemon/sword-x-shield02/metronome-battle.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import ReactGA from 'react-ga';
 
@@ -14,6 +15,7 @@ const Index: React.FC = () => {
       <p>僕がゲームをプレイした中で対外に公開したい情報をアップしていきます🐳</p>
       <ul>
         <li><Link to="pokemon/sword_x_shield01"><img src={img_flareon_battle} alt="【ブースターさいきょうけっていせん】ブースターのド根性【最終8位】" /></Link></li>
+        <li><Link to="pokemon/sword_x_shield02"><img src={img_metronome_battle} alt="【新春！おみくじバトル】ハチマキロンゲの運ゲ【最終n位】" /></Link></li>
       </ul>
     </div>
   );
