@@ -46,14 +46,4 @@ const Footer: React.FC = () => {
   );
 }
 
-declare global {
-  interface Window {
-    twttr: any;
-  }
-}
-
-interface HTMLElement {
-  src: string;
-}
-
 export default Router;

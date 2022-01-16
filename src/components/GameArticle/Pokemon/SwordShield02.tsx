@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import '../../../styles/GameArticle/Base.scss';
 import img_thumb from '../../../images/game-article/pokemon/sword-x-shield02/metronome-battle.png';
 import img_party from '../../../images/game-article/pokemon/sword-x-shield02/party.jpg';
-import img_detail from '../../../images/game-article/pokemon/sword-x-shield01/detail.png';
-import img_ranking from '../../../images/game-article/pokemon/sword-x-shield01/ranking.png';
+import img_detail from '../../../images/game-article/pokemon/sword-x-shield02/detail.png';
+import img_ranking from '../../../images/game-article/pokemon/sword-x-shield02/ranking.png';
 import { PokemonIcon } from './MonsterHelper';
 
 import ReactGA from 'react-ga';
@@ -15,7 +15,7 @@ const SwordShield02: React.FC = () => {
   return (
     <div className="ga-show">
       <Head />
-      <h2>【新春！おみくじバトル】ハチマキロンゲで運ゲ【最終n位】</h2>
+      <h2>【新春！おみくじバトル】ハチマキロンゲで運ゲ【最終18位】</h2>
       <p className="ga-show-timestamp">2021.01.10</p>
       <p className="ga-show-image">
         <img src={img_party} alt="構築" />
@@ -134,16 +134,19 @@ const SwordShield02: React.FC = () => {
       </p>
       <h3>結果</h3>
       <p>
-        規模感としてはn人が参加した大会で結果としてn位を達成できました🐳
+        規模感としては2.4万人が参加した大会で結果として18位を達成できました🐳 <br />
+        とはいえ、試合の 8 割が TOD だったので、1on1 か持ち物/特性に縛りを設けてもよかったと思います！<br />
+        運営さん、次回以降検討いただけないですか！？！？
       </p>
       <p className="ga-show-image-double">
+        <img src={img_detail} alt="規模感" /><img src={img_ranking} alt="ランキング" />
       </p>
       <h3>おまけ</h3>
       <p>
         動画があるので興味ある方は是非🧜‍♂️
       </p>
       <p className="ga-show-image">
-        <iframe src="https://www.youtube.com/embed/wFWARedo2Wg" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" />
+        <iframe src="https://www.youtube.com/embed/vMLnc9GCojg" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" />
       </p>
       <BackButton />
     </div>
@@ -161,11 +164,11 @@ const BackButton: React.FC = () => {
 }
 
 const Head: React.FC = () => {
-  const title = '【新春！おみくじバトル】ハチマキロンゲで運ゲ【最終n位】';
+  const title = '【新春！おみくじバトル】ハチマキロンゲで運ゲ【最終18位】';
   const type = 'article';
   const img = `https://amabie-labo.com${img_thumb}`;
   const url = 'https://amabie-labo.com/game_article/pokemon/sword_x_shield02';
-  const description = '【新春！おみくじバトル】ハチマキロンゲで運ゲ【最終n位】のときのポケモン剣盾構築記事です。';
+  const description = '【新春！おみくじバトル】ハチマキロンゲで運ゲ【最終18位】のときのポケモン剣盾構築記事です。';
   ReactGA.initialize('UA-195013640-1');
   ReactGA.pageview(window.location.pathname + window.location.search);
   return (
