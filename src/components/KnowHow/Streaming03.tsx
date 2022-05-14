@@ -126,28 +126,6 @@ const BackButton: React.FC = () => {
   );
 }
 
-interface IProps {
-  title: string;
-  link: string;
-  imgUrl: string;
-  description: string;
-}
-
-const Quote: React.FC<IProps> = (props) => {
-  const { title, link, imgUrl, description } = props
-  return (
-    <div className="kh-show-quote">
-      <div className="kh-show-quote-content">
-        <a href={link} target="_blank" rel="noreferrer">
-          <p>{title}</p>
-          <p className="kh-show-quote-content-description">{description}</p>
-          <img src={imgUrl} alt={title} />
-        </a>
-      </div>
-    </div>
-  )
-}
-
 const Head: React.FC = () => {
   const title = 'OBSで音ズレする際のトラブルシューティング';
   const type = 'article';
