@@ -3,6 +3,7 @@ import '../../styles/KnowHow/Base.scss';
 import { Link } from 'react-router-dom';
 import img_pikopiko_obs_x_discord from '../../images/know-how/pikopiko-obs-x-discord.png';
 import img_vtube_studio_x_discord from '../../images/know-how/vtube-studio-x-discord.png';
+import img_audio_troubleshooting from '../../images/know-how/audio-troubleshooting.png';
 import know_how_streaming from '../../images/know-how-streaming-banner.png';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import ReactGA from 'react-ga';
@@ -14,8 +15,9 @@ const Index: React.FC = () => {
       <h2>配信お役立ち情報</h2>
       <p>僕も配信者の端くれなので役立ちそうな情報をアップしていきます🐳</p>
       <ul>
-        <li><Link to="know_how/streaming01"><img src={img_vtube_studio_x_discord} alt="VTube Studio と Discord を使って共演VTuberをぬるぬる動かす" /></Link></li>
+        <li><Link to="know_how/streaming03"><img src={img_audio_troubleshooting} alt="OBS で音ズレする際のトラブルシューティング" /></Link></li>
         <li><Link to="know_how/streaming02"><img src={img_pikopiko_obs_x_discord} alt="「OBSでピコピコを楽に生成ツール」の使い方" /></Link></li>
+        <li><Link to="know_how/streaming01"><img src={img_vtube_studio_x_discord} alt="VTube Studio と Discord を使って共演VTuberをぬるぬる動かす" /></Link></li>
       </ul>
     </div>
   );
